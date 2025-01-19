@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+    background: #EEEEEE;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    background: #191515;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+nav a{
+    color: white;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+main{
+    background: white;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+nav a:hover {
+    background-color: #0096ff;
+    color: black;
+}
+main h1{
+    text-align: center;
+}
+
+main p{
+    line-height: 1,5;
+}
+button{
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  
+}
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+
+.dk .dd:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.dd{
+    background-color: #04AA6D; /* Green */
+    border: none;;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.dk{
+    background-color: #04AA6D; /* Green */
+    border: none;;
+padding-top: 10px;
+color: #EEEEEE;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;  
+}
+h2{
+    text-align: center;
+}

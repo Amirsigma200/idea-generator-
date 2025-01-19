@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор идей</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="kc.html">Отзыв</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Генератор идей</h1>
+
+        <p>Выберите категорию и получите идею:</p>
+
+        <div class="dd">
+            <select id="category">
+                <option value="activity">Чем заняться сегодня?</option>
+                <option value="project">Идея для проекта</option>
+                <option value="recipe">Что приготовить?</option>
+                <option value="hobby">Новое хобби</option>
+                <option value="challenge">Вызов для себя</option>
+                <option value="fun">Для веселья</option>
+                <option value="travel">Куда поехать?</option>
+                <option value="learning">Чему научиться?</option>
+            </select>
+        </div>
+        <button onclick="generateIdea()">Получить идею</button>
+
+        <h2>Ваша идея:</h2>
+        <p id="idea">Здесь появится идея...</p>
+
+        <h2>Сохранённые идеи:</h2>
+        <ul id="savedIdeas">
+            <!-- Сохранённые идеи появятся здесь -->
+        </ul>
+
+        <button onclick="saveIdea()">Сохранить идею</button>
+
+        <h2>Поделитесь своей идеей:</h2>
+        <textarea class="dk" id="customIdea" placeholder="Напишите свою идею..."></textarea>
+        <button onclick="addCustomIdea()">Добавить идею</button>
+
+        <script>
+            const ideas = {
+                activity: [
+                    "Сходите на прогулку в парк",
+                    "Попробуйте новую настольную игру",
+                    "Организуйте уборку дома под музыку",
+                    "Сделайте зарядку на свежем воздухе"
+                ],
+                project: [
+                    "Создайте сайт с интересной идеей",
+                    "Снимите короткое видео",
+                    "Сделайте простую поделку из бумаги",
+                    "Запишите свой подкаст"
+                ],
+                recipe: [
+                    "Приготовьте домашние блинчики",
+                    "Сделайте смузи из банана и молока",
+                    "Запеките картофель с сыром",
+                    "Сварите вкусный суп с лапшой"
+                ],
+                hobby: [
+                    "Попробуйте рисование",
+                    "Начните учить новый язык",
+                    "Соберите пазл",
+                    "Попробуйте вязание крючком"
+                ],
+                challenge: [
+                    "Откажитесь от соцсетей на день",
+                    "Просыпайтесь на час раньше неделю",
+                    "Пройдите 10,000 шагов за день",
+                    "Попробуйте провести день без сахара"
+                ],
+                fun: [
+                    "Организуйте вечер кино дома",
+                    "Поиграйте в квест с друзьями",
+                    "Создайте мемы на любимую тему",
+                    "Сделайте фотосессию в необычном стиле"
+                ],
+                travel: [
+                    "Съездите в соседний город и исследуйте его достопримечательности",
+                    "Организуйте пикник на природе",
+                    "Посетите музей или выставку",
+                    "Отправьтесь в поход на выходных"
+                ],
+                learning: [
+                    "Изучите основы программирования",
+                    "Прочитайте книгу на иностранном языке",
+                    "Попробуйте готовить блюда другой кухни",
+                    "Выучите базовые фразы на новом языке"
+                ]
+            };
+
+            function generateIdea() {
+                const category = document.getElementById("category").value;
+                const categoryIdeas = ideas[category];
+                const randomIndex = Math.floor(Math.random() * categoryIdeas.length);
+                const randomIdea = categoryIdeas[randomIndex];
+
+                document.getElementById("idea").textContent = randomIdea;
+            }
+
+            function saveIdea() {
+                const idea = document.getElementById("idea").textContent;
+                if (idea !== "Здесь появится идея..." && idea !== "") {
+                    const savedIdeasList = document.getElementById("savedIdeas");
+                    const listItem = document.createElement("li");
+                    listItem.textContent = idea;
+                    savedIdeasList.appendChild(listItem);
+                }
+            }
+
+            function addCustomIdea() {
+                const customIdea = document.getElementById("customIdea").value;
+                if (customIdea.trim() !== "") {
+                    const category = document.getElementById("category").value;
+                    ideas[category].push(customIdea);
+                    document.getElementById("customIdea").value = "";
+                    alert("Идея добавлена в категорию: " + category);
+                }
+            }
+        </script>
+    </main>
+</body>
+</html>
